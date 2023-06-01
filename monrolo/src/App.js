@@ -1,5 +1,5 @@
 import './App.css';
-import { Component, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import CardList from './components/card-list/card-list.component';
 import SearchBox from './components/search-box/search-box.component';
