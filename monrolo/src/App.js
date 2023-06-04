@@ -9,6 +9,7 @@ const App = () => {
   const [searchFieldValue, setSearchField] = useState('');
   const [monsters, setMonsters] = useState([]);
   const [filteredMonster, setFilteredMonster] = useState([]);
+  const [title, setTitle] = useState('');
 
   useEffect(
     () => {
@@ -35,13 +36,28 @@ const App = () => {
     setSearchField(searchFieldString);
   }
 
+  const onTitleChange = (event) => {
+    const titleString = event
+    .target
+    .value
+    .toLowerCase();
+
+    setTitle(titleString);
+  }
+
   return (
     <div className="App">
-      <h1 className='app-title'> Monster Rolodex</h1>
+      <h1 className='app-title'>{title}</h1>
       <SearchBox 
         className='monsters-search-box'
         onChangeHandler={onSearchChange}
         placeholder='Search monster'
+      />
+      <br/>
+      <SearchBox 
+        className='title-search-box'
+        onChangeHandler={onTitleChange}
+        placeholder='set title'
       />
       <CardList 
         monsters={filteredMonster}
